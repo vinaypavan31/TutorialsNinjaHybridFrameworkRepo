@@ -18,6 +18,8 @@ public class SearchTest extends BaseClass {
 	public SearchTest() {
 		super();
 	}
+	
+	//added by priyanka tester
 
 	@BeforeMethod
 	public void setup() {
