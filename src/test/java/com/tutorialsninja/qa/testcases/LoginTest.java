@@ -13,6 +13,7 @@ import com.tutorialsninja.qa.pages.LoginPage;
 import com.tutorialsninja.qa.utils.Utilities;
 import com.tutorilasninja.qa.base.BaseClass;
 // create a new branch for working in login
+//added few more lines in login tests
 public class LoginTest extends BaseClass {
 	public WebDriver driver;
 	LoginPage loginPage;
