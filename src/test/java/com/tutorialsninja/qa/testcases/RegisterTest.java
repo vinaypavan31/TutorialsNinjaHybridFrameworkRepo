@@ -12,6 +12,8 @@ import com.tutorialsninja.qa.pages.RegisterPage;
 import com.tutorialsninja.qa.utils.Utilities;
 import com.tutorilasninja.qa.base.BaseClass;
 
+//added code in register in from ram--added from cg laptop
+
 public class RegisterTest extends BaseClass {
 
 	public WebDriver driver;
