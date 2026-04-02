@@ -28,7 +28,7 @@ public class RegisterTest extends BaseClass {
 	public void setup() {
 		driver = initializeBrowserAndOpenApplicationURL(prop.getProperty("browser"));
 		HomePage homePage = new HomePage(driver);
-		registerPage=homePage.navigateToRegisterPage();
+		registerPage = homePage.navigateToRegisterPage();
 
 	}
 
@@ -47,12 +47,10 @@ public class RegisterTest extends BaseClass {
 //		registerPage.enterPassword(prop.getProperty("validPassword"));
 //		registerPage.enterConfirmPassword(prop.getProperty("validPassword"));
 //		registerPage.clickOnAgreeCheckBox();
-		AccountSuccessPage accountSuccessPage = registerPage.registerWithMandatoryFields(dataProp.getProperty("firstName"),
-				dataProp.getProperty("lastName"),
-				Utilities.generateEmailWithTimeStamp(),
-				dataProp.getProperty("telephone"),
-				prop.getProperty("validPassword"),
-				prop.getProperty("validPassword"));
+		AccountSuccessPage accountSuccessPage = registerPage.registerWithMandatoryFields(
+				dataProp.getProperty("firstName"), dataProp.getProperty("lastName"),
+				Utilities.generateEmailWithTimeStamp(), dataProp.getProperty("telephone"),
+				prop.getProperty("validPassword"), prop.getProperty("validPassword"));
 
 		String actualHeading = accountSuccessPage.getPageHeading();
 
@@ -64,13 +62,10 @@ public class RegisterTest extends BaseClass {
 	@Test(priority = 2)
 	public void verifyRegisteringAccountByProvidingAllFields() {
 
-		AccountSuccessPage accountSuccessPage = registerPage.registerWithMandatoryFields(dataProp.getProperty("firstName"),
-				dataProp.getProperty("lastName"),
-				Utilities.generateEmailWithTimeStamp(),
-				dataProp.getProperty("telephone"),
-				prop.getProperty("validPassword"),
-				prop.getProperty("validPassword"));
-		
+		AccountSuccessPage accountSuccessPage = registerPage.registerWithMandatoryFields(
+				dataProp.getProperty("firstName"), dataProp.getProperty("lastName"),
+				Utilities.generateEmailWithTimeStamp(), dataProp.getProperty("telephone"),
+				prop.getProperty("validPassword"), prop.getProperty("validPassword"));
 
 		String actualHeading = accountSuccessPage.getPageHeading();
 
@@ -80,13 +75,9 @@ public class RegisterTest extends BaseClass {
 
 	@Test
 	public void verifyRegisteringAccountWithExistingEmailAddress() {
-		registerPage.registerWithAllFields(dataProp.getProperty("firstName"),
-				dataProp.getProperty("lastName"),
-				prop.getProperty("validEmail"),
-				dataProp.getProperty("telephone"),
-				prop.getProperty("validPassword"),
+		registerPage.registerWithAllFields(dataProp.getProperty("firstName"), dataProp.getProperty("lastName"),
+				prop.getProperty("validEmail"), dataProp.getProperty("telephone"), prop.getProperty("validPassword"),
 				prop.getProperty("validPassword"));
-		
 
 		String actualMsg = registerPage.getDuplicateEmailErrorMsg();
 
@@ -113,13 +104,13 @@ public class RegisterTest extends BaseClass {
 				"First Name warning message is not displayed");
 		Assert.assertEquals(actualLastNameWarningMsg, dataProp.getProperty("lastNameWarning"),
 				"Last Name warning message is not displayed");
-		
+
 		Assert.assertEquals(actualEmailWarningMsg, dataProp.getProperty("emailWarning"),
 				"Email warning message is not displayed");
 		Assert.assertEquals(actualTelephoneWarningMsg, dataProp.getProperty("telephoneWarning"),
 				"Telephone warning message is not displayed");
-		//dataProp.getProperty("passwordWarning")
-		Assert.assertEquals(actualPasswordWarningMsg, "qwerty",
+		// dataProp.getProperty("passwordWarning")
+		Assert.assertEquals(actualPasswordWarningMsg, dataProp.getProperty("passwordWarning"),
 				"Password warning message is not displayed");
 
 	}

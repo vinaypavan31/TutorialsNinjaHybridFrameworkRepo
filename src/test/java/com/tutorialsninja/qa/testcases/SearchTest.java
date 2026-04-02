@@ -56,7 +56,7 @@ public class SearchTest extends BaseClass {
 		
 		String actualSearchMsg = searchPage.getNoProductsMessageText();
 //dataProp.getProperty("noProductMessage")
-		Assert.assertEquals(actualSearchMsg, "abcd",
+		Assert.assertEquals(actualSearchMsg,dataProp.getProperty("noProductMessage") ,
 				"No product message in search results not displayed");
 	}
 
